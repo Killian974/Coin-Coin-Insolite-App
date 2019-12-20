@@ -1,7 +1,7 @@
 <ion-app>
   <ion-router-outlet></ion-router-outlet>
   <!-- TODO hide on home page & map page -->
-  <ion-tabs>
+  <ion-tabs *ngIf="!this.router.url === '/home'">
     <ion-tab-bar slot="bottom">
       <ion-tab-button>
         <ion-icon name="map"></ion-icon>
