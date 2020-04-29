@@ -14,8 +14,8 @@ export class LoginPage implements OnInit {
     password: ''
   };
   connected: boolean;
-  email: '';
-  methodOfConnection: '';
+  email;
+  methodOfConnection: string;
 
   constructor(
       public afAuth: AngularFireAuth
