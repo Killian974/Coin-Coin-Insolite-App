@@ -18,6 +18,7 @@ import { HomePage } from './home.page';
       }
     ])
   ],
+  exports: [HomePage],
   declarations: [HomePage]
 })
 export class HomePageModule {}
