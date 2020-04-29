@@ -18,9 +18,5 @@ Github du projet d'application mobile Coin-Coin insolite, Groupe 1.
 
 ## Utilisateur test
 
-- Méthode adresse email & mot de passe : 
-        -   Email : test@gmail.com   
-        -   Mot de passe : test@gmail.com
-- Méthode connexion facebook : 
-        -   Email : xlkrrecxpc_1588171961@tfbnw.net
-        -   Mot de passe : coincoin
+- Méthode adresse email & mot de passe : `Email : test@gmail.com` || `Mot de passe : test@gmail.com`
+- Méthode connexion facebook : `Email : xlkrrecxpc_1588171961@tfbnw.net` || `Mot de passe : coincoin`
