@@ -12,7 +12,7 @@ import { RouterModule } from "@angular/router";
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild([{ path: "", component: LoginPage }]),
+    RouterModule.forChild([{ path: "login", component: LoginPage }]),
   ],
   declarations: [LoginPage],
 })
