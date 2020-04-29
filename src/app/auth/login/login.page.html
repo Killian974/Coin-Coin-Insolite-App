@@ -28,7 +28,7 @@
       </ion-text>
 
       <div class="ion-text-center" style="margin-top: 12%;margin-bottom: 10%">
-        <ion-button style="margin-bottom: 10%" expand="block" >
+        <ion-button style="margin-bottom: 10%" (click)="facebookLogin()" expand="block" >
           <ion-icon ios="logo-facebook" md="logo-facebook" style="margin-right: 4%"></ion-icon>
           Connexion avec Facebook
         </ion-button>
@@ -40,7 +40,7 @@
   </div>
 
     <div *ngIf="connected" class="ion-padding">
-        <p class="ion-text-center" style="margin-bottom: 5%%">Vous êtes bien connecté</p>
+        <p class="ion-text-center" style="margin-bottom: 5%">Vous êtes bien connecté</p>
         <ion-item style="margin-bottom: 20%">
             <p class="ion-text-center">Adresse email : <b>{{email}}</b></p>
         </ion-item>

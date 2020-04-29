@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
-import {auth} from 'firebase';
+import { Platform } from '@ionic/angular';
+import { AngularFireDatabase} from '@angular/fire/database';
+import * as firebase from 'firebase';
+import { Facebook } from '@ionic-native/facebook/ngx';
+import {error} from 'util';
 
 @Component({
   selector: 'app-login',
@@ -9,6 +13,7 @@ import {auth} from 'firebase';
 })
 export class LoginPage implements OnInit {
 
+  providerFb: firebase.auth.FacebookAuthProvider;
   dataUser = {
     email: '',
     password: ''
@@ -18,7 +23,10 @@ export class LoginPage implements OnInit {
   methodOfConnection: string;
 
   constructor(
-      public afAuth: AngularFireAuth
+      public afDB: AngularFireDatabase,
+      public afAuth: AngularFireAuth,
+      private fb: Facebook,
+      public plateform: Platform
   ) {
     this.afAuth.authState.subscribe(auth => {
       if (!auth) {
@@ -29,6 +37,9 @@ export class LoginPage implements OnInit {
         this.connected = true;
       }
     });
+
+    // tslint:disable-next-line:new-parens
+    this.providerFb = new firebase.auth.FacebookAuthProvider();
   }
 
   login() {
@@ -38,6 +49,40 @@ export class LoginPage implements OnInit {
       email: '',
       password: ''
     };
+  }
+
+  facebookLogin() {
+    if (this.plateform.is('cordova')) {
+      console.log('cordova');
+      this.facebookCordova();
+    } else {
+      console.log('web');
+      this.facebookWeb();
+    }
+  }
+
+  facebookCordova() {
+    this.fb.login(['email']).then( (response) => {
+      const facebookCredential = firebase.auth.FacebookAuthProvider
+          .credential(response.authResponse.accessToken);
+      firebase.auth().signInWithCredential(facebookCredential)
+          .then( (success) => {
+            console.log('Info Facebook: ' + JSON.stringify(success));
+          }).catch((error) => {
+            console.log('Erreur: ' + JSON.stringify(error));
+      });
+    }).catch((error) => { console.log(error); });
+  }
+
+  facebookWeb() {
+    this.afAuth
+        .signInWithPopup(new firebase.auth.FacebookAuthProvider())
+        .then((success) => {
+          console.log('Info Facebook : ' + JSON.stringify(success));
+          this.email = success.user.email;
+        }).catch((error) => {
+          console.log('Erreur ' + JSON.stringify(error));
+        });
   }
 
   logout() {
