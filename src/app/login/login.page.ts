@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
+import {auth} from 'firebase';
 
 @Component({
   selector: 'app-login',
@@ -7,7 +9,44 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginPage implements OnInit {
 
-  constructor() { }
+  dataUser = {
+    email: '',
+    password: ''
+  };
+  connected: boolean;
+  email: '';
+  methodOfConnection: '';
+
+  constructor(
+      public afAuth: AngularFireAuth
+  ) {
+    this.afAuth.authState.subscribe(auth => {
+      if (!auth) {
+        console.log('non connecté');
+        this.connected = false;
+      } else {
+        console.log('connecté');
+        this.connected = true;
+      }
+    });
+  }
+
+  login() {
+    this.afAuth.signInWithEmailAndPassword(this.dataUser.email, this.dataUser.password);
+    this.email = this.dataUser.email;
+    this.dataUser = {
+      email: '',
+      password: ''
+    };
+  }
+
+  logout() {
+   this.afAuth.signOut();
+   this.dataUser = {
+      email: '',
+      password: ''
+    };
+  }
 
   ngOnInit() {
   }
