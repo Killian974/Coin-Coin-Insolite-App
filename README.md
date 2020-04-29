@@ -4,9 +4,11 @@ Github du projet d'application mobile Coin-Coin insolite, Groupe 1.
 
 ## Code :
 
-- Coder en anglais (ex : const name = john )
-- Le nommage des fonctions doit décrire une action et utiliser des verbes (ex: function doThis(){} )
+- Coder en anglais (ex : const name = john)
+- Le nommage des fonctions doit décrire une action et utiliser des verbes (ex: function doThis(){})
+- La portée des fonctions doit être renseignée (ex: `public` doThis(){})
 - Le nommage des variables doit utiliser des noms (ex: name)
+- Le type et la portée des variables doivent être renseignés (ex: `private` name: `string` = jhon;)
 - Ne pas utiliser d'abréviation pour garder le code lisible par l'équipe
 
 ## Lancement et Debug
