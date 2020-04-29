@@ -14,7 +14,7 @@ export class LoginPage implements OnInit {
     password: ''
   };
   connected: boolean;
-  email: string;
+  email;
   methodOfConnection: string;
 
   constructor(
