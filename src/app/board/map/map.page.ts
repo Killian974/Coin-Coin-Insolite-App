@@ -4,6 +4,7 @@ import {
   coincoinModel,
   coincoinList,
 } from "src/app/shared/model/coincoin.model";
+import { environment } from "src/environments/environment";
 
 @Component({
   selector: "app-map",
@@ -17,8 +18,7 @@ export class MapPage implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    (mapboxgl as typeof mapboxgl).accessToken =
-      "pk.eyJ1IjoibG91bHAiLCJhIjoiY2s5azB5bTkyMGMxYTNncGlvYWp6c3RkaCJ9.1-jFUowFjw6rFAbJuZTVYQ";
+    (mapboxgl as typeof mapboxgl).accessToken = environment.mapToken;
 
     this.coinList = coincoinList;
 
