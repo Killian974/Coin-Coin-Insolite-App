@@ -6,6 +6,8 @@ import * as firebase from 'firebase';
 import { Facebook } from '@ionic-native/facebook/ngx';
 import {error} from 'util';
 
+import * as uuid from 'uuid';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -16,10 +18,11 @@ export class LoginPage implements OnInit {
   providerFb: firebase.auth.FacebookAuthProvider;
   dataUser = {
     email: '',
-    password: ''
+    password: '',
+    userId: ''
   };
   connected: boolean;
-  email;
+  email: string;
   methodOfConnection: string;
 
   constructor(
@@ -47,7 +50,8 @@ export class LoginPage implements OnInit {
     this.email = this.dataUser.email;
     this.dataUser = {
       email: '',
-      password: ''
+      password: '',
+      userId: ''
     };
   }
 
@@ -68,6 +72,10 @@ export class LoginPage implements OnInit {
       firebase.auth().signInWithCredential(facebookCredential)
           .then( (success) => {
             console.log('Info Facebook: ' + JSON.stringify(success));
+            this.afDB.object('Users/' + uuid.v4()).set({
+              displayName: success.user.displayName,
+              email: success.user.email
+            });
           }).catch((error) => {
             console.log('Erreur: ' + JSON.stringify(error));
       });
@@ -80,6 +88,10 @@ export class LoginPage implements OnInit {
         .then((success) => {
           console.log('Info Facebook : ' + JSON.stringify(success));
           this.email = success.user.email;
+          this.afDB.object('Users/' + uuid.v4()).set({
+            displayName: success.user.displayName,
+            email: success.user.email
+          });
         }).catch((error) => {
           console.log('Erreur ' + JSON.stringify(error));
         });
@@ -89,7 +101,8 @@ export class LoginPage implements OnInit {
    this.afAuth.signOut();
    this.dataUser = {
       email: '',
-      password: ''
+      password: '',
+      userId: ''
     };
   }
 

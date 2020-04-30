@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFireDatabase} from '@angular/fire/database';
+import * as uuid from 'uuid';
 
 @Component({
   selector: 'app-register',
@@ -15,7 +17,10 @@ export class RegisterPage implements OnInit {
     password: ''
   };
 
+  userId = '';
+
   constructor(
+      public afDB: AngularFireDatabase,
       public afAuth: AngularFireAuth
   ) { }
 
@@ -24,6 +29,10 @@ export class RegisterPage implements OnInit {
 
   signUp() {
     this.afAuth.createUserWithEmailAndPassword(this.dataUser.email, this.dataUser.password);
+    this.afDB.object('Users/' + uuid.v4()).set({
+      displayName: this.dataUser.firstname + ' ' + this.dataUser.lastname,
+      email: this.dataUser.email
+    });
     this.dataUser = {
       firstname: '',
       lastname: '',

@@ -1,0 +1,37 @@
+<ion-header>
+
+</ion-header>
+
+<ion-content>
+
+  <h1 class="ion-text-center" style="text-decoration: underline; margin-bottom: 15%" >
+    Mes informations :
+  </h1>
+
+  <h5 style="text-decoration: underline" class="ion-text-center">Modification de mon adresse email:</h5>
+  <ion-item>
+    <ion-label position="floating">Nouvelle adresse email</ion-label>
+    <ion-input type="email" ></ion-input>
+  </ion-item>
+  <ion-button expand="block" color="tertiary" style="margin-bottom: 20%">
+    Modifier mon adresse email
+  </ion-button>
+
+  <h5 style="text-decoration: underline" class="ion-text-center">Modification du mot de passe :</h5>
+  <ion-item>
+    <ion-label position="floating">Nouveau mot de passe</ion-label>
+    <ion-input type="password" ></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Comfirmation nouveau mot de passe</ion-label>
+    <ion-input type="password" ></ion-input>
+  </ion-item>
+  <ion-button expand="block" color="tertiary" style="margin-bottom: 15%">
+    Modifier mon mot de passe
+  </ion-button>
+
+  <ion-button expand="block" (click)="logout()" color="danger" style="bottom: 2%" >
+    Déconnexion
+  </ion-button>
+
+</ion-content>
