@@ -23,19 +23,32 @@ export const coincoinList: Array<coincoinModel> = [
   {
     id: 1,
     name: "Lorem Ipsum",
-    longitude: 1.7191,
-    latitude: 46.8111,
-    description: "loremp ipsum",
+    longitude: -1.54771,
+    latitude: 47.201755,
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vitae erat id mi semper varius. Vivamus vel ultricies leo, ut pharetra urna. Maecenas nisi mauris, porttitor et sapien ut, lobortis ultricies quam. Integer vitae tempus tortor. Nullam euismod blandit augue vel convallis. Quisque interdum est rhoncus vulputate feugiat.",
     author: "John Doe",
     picture: "https://www.plantes-et-sante.fr/images/photo-8.jpg",
   },
   {
     id: 2,
     name: "Lorem Ipsum",
-    longitude: 1.7191,
-    latitude: 46.7111,
-    description: "loremp ipsum",
+    longitude: -1.547563,
+    latitude: 47.205341,
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vitae erat id mi semper varius. Vivamus vel ultricies leo, ut pharetra urna.",
     author: "John Doe",
-    picture: "https://www.plantes-et-sante.fr/images/photo-8.jpg",
+    picture: "https://static.passeportsante.net/680x357/i93408-.jpeg",
+  },
+  {
+    id: 3,
+    name: "Lorem Ipsum",
+    longitude: -1.532794,
+    latitude: 47.247868,
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vitae erat id mi semper varius.",
+    author: "John Doe",
+    picture:
+      "https://assets.afcdn.com/story/20190822/2020759_w980h638c1cx2250cy1514cxt0cyt0cxb4500cyb3027.jpg",
   },
 ];
