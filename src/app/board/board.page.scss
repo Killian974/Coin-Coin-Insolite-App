@@ -1,0 +1,14 @@
+@import "../shared/style/variables.scss";
+
+ion-tab-bar {
+  box-shadow: -1px -3px 10px #a3a599;
+  --background: #fbcd4b;
+
+  * {
+    --background: $yellowColor;
+  }
+}
+
+ion-icon {
+  color: $greenColor;
+}
