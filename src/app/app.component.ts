@@ -6,6 +6,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
+import {getUrl} from "@ionic/angular/dist/directives/navigation/stack-utils";
 
 @Component({
   selector: 'app-root',
@@ -28,13 +29,13 @@ export class AppComponent {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
       this.afAuth.authState.subscribe(auth => {
-        if (!auth) {
-          console.log('non connecté');
-          this.router.navigateByUrl('/login');
-        } else {
-          this.router.navigateByUrl('/board/map');
-          console.log('Connecté: ' + auth.uid);
-        }
+        // if (!auth) {
+        //   console.log('non connecté');
+        //   this.router.navigateByUrl('/login');
+        // } else {
+        //   this.router.navigateByUrl('/board/map');
+        //   console.log('Connecté: ' + auth.uid);
+        // }
       });
     });
   }
