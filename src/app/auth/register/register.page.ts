@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFireDatabase} from '@angular/fire/database';
 import * as uuid from 'uuid';
+import { ToastController } from '@ionic/angular';
+import { Router } from '@angular/router';
+
+
 
 @Component({
   selector: 'app-register',
@@ -21,7 +25,9 @@ export class RegisterPage implements OnInit {
 
   constructor(
       public afDB: AngularFireDatabase,
-      public afAuth: AngularFireAuth
+      public afAuth: AngularFireAuth,
+      public toastController: ToastController,
+      private router: Router,
   ) { }
 
   ngOnInit() {
@@ -33,11 +39,22 @@ export class RegisterPage implements OnInit {
       displayName: this.dataUser.firstname + ' ' + this.dataUser.lastname,
       email: this.dataUser.email
     });
-    this.dataUser = {
-      firstname: '',
-      lastname: '',
-      email: '',
-      password: ''
-    };
+    this.presentToast();
+    this.router.navigateByUrl('/board/map');
   }
+
+  logout() {
+    this.afAuth.signOut();
+  }
+
+  async presentToast() {
+    const toast = await this.toastController.create({
+      color: "success",
+      position: "top",
+      message: 'Vous êtes à présent inscrit ! ',
+      duration: 5000
+    });
+    toast.present();
+  }
+
 }
