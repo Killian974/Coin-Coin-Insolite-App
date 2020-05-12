@@ -26,13 +26,20 @@ const routes: Routes = [
           ),
       },
       {
+        path: 'reset-password',
+        loadChildren: () =>
+            import('./reset-password/reset-password.module').then(
+                m => m.ResetPasswordPageModule
+            ),
+      },
+      {
         path: "",
         redirectTo: "home",
         pathMatch: "full",
       },
     ],
   },
-];
+  ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
