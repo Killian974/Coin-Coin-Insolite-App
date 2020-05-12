@@ -19,12 +19,24 @@ const routes: Routes = [
         ],
       },
       {
-        path: 'profile',
-        loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
+        path: "gallery",
+        children: [
+          {
+            path: "",
+            loadChildren: () =>
+              import("./gallery/gallery.module").then(
+                (m) => m.GalleryPageModule
+              ),
+          },
+        ],
+      },
+      {
+        path: "profile",
+        loadChildren: () =>
+          import("./profile/profile.module").then((m) => m.ProfilePageModule),
       },
     ],
   },
-
 ];
 
 @NgModule({

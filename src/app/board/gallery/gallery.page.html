@@ -1,0 +1,30 @@
+<ion-toolbar>
+  <ion-searchbar></ion-searchbar>
+</ion-toolbar>
+
+<ion-content>
+  <div class="categoryContainer">
+    <h2>Les coins les plus likés</h2>
+    <div class="cardContainer">
+      <app-coin-card [sorted]="true" [coinList]="coinList"></app-coin-card>
+    </div>
+    <div class="divider"></div>
+  </div>
+  <div class="categoryContainer">
+    <h2>Les coins à proximités</h2>
+    <div class="cardContainer">
+      <app-coin-card [sorted]="true" [coinList]="coinList"></app-coin-card>
+    </div>
+    <div class="divider"></div>
+  </div>
+  <div class="categoryContainer">
+    <h2>Les coins que vous avez aimez</h2>
+    <div class="cardContainer">
+      <app-coin-card [sorted]="true" [coinList]="coinList"></app-coin-card>
+    </div>
+    <div class="divider"></div>
+  </div>
+  <div class="infiniteList">
+    <app-coin-card [sorted]="false" [coinList]="coinList"></app-coin-card>
+  </div>
+</ion-content>
