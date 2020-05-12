@@ -6,6 +6,7 @@ import { IonicModule } from "@ionic/angular";
 
 import { GalleryPage } from "./gallery.page";
 import { RouterModule } from "@angular/router";
+import { CoinCardComponent } from "src/app/shared/components/coin-card/coin-card.component";
 
 @NgModule({
   imports: [
@@ -14,6 +15,6 @@ import { RouterModule } from "@angular/router";
     IonicModule,
     RouterModule.forChild([{ path: "", component: GalleryPage }]),
   ],
-  declarations: [GalleryPage],
+  declarations: [GalleryPage, CoinCardComponent],
 })
 export class GalleryPageModule {}

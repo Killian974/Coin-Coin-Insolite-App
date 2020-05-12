@@ -4,19 +4,27 @@
 
 <ion-content>
   <div class="categoryContainer">
-    <h2>Nom de la category</h2>
+    <h2>Les coins les plus likés</h2>
     <div class="cardContainer">
-      <ion-card *ngFor="let coin of coinList">
-        <div>
-          <img src="{{coin.picture}}" />
-        </div>
-        <ion-card-header>
-          <ion-card-title>{{coin.name}}</ion-card-title>
-          <ion-card-subtitle
-            >{{coin.longitude}}/{{coin.latitude}}</ion-card-subtitle
-          >
-        </ion-card-header>
-      </ion-card>
+      <app-coin-card [sorted]="true" [coinList]="coinList"></app-coin-card>
     </div>
+    <div class="divider"></div>
+  </div>
+  <div class="categoryContainer">
+    <h2>Les coins à proximités</h2>
+    <div class="cardContainer">
+      <app-coin-card [sorted]="true" [coinList]="coinList"></app-coin-card>
+    </div>
+    <div class="divider"></div>
+  </div>
+  <div class="categoryContainer">
+    <h2>Les coins que vous avez aimez</h2>
+    <div class="cardContainer">
+      <app-coin-card [sorted]="true" [coinList]="coinList"></app-coin-card>
+    </div>
+    <div class="divider"></div>
+  </div>
+  <div class="infiniteList">
+    <app-coin-card [sorted]="false" [coinList]="coinList"></app-coin-card>
   </div>
 </ion-content>
