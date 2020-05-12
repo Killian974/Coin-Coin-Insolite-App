@@ -1,16 +1,16 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
 
-import { Platform } from '@ionic/angular';
-import { SplashScreen } from '@ionic-native/splash-screen/ngx';
-import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { Platform } from "@ionic/angular";
+import { SplashScreen } from "@ionic-native/splash-screen/ngx";
+import { StatusBar } from "@ionic-native/status-bar/ngx";
 
-import { Router } from '@angular/router';
-import { AngularFireAuth } from '@angular/fire/auth';
+import { Router } from "@angular/router";
+import { AngularFireAuth } from "@angular/fire/auth";
 
 @Component({
-  selector: 'app-root',
-  templateUrl: 'app.component.html',
-  styleUrls: ['app.component.scss']
+  selector: "app-root",
+  templateUrl: "app.component.html",
+  styleUrls: ["app.component.scss"],
 })
 export class AppComponent {
   constructor(
@@ -18,7 +18,7 @@ export class AppComponent {
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     private router: Router,
-    public afAuth: AngularFireAuth,
+    public afAuth: AngularFireAuth
   ) {
     this.initializeApp();
   }
@@ -27,13 +27,13 @@ export class AppComponent {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
-      this.afAuth.authState.subscribe(auth => {
-        if (!auth) {
-          console.log('non connecté');
-          this.router.navigateByUrl('/login');
+      this.afAuth.authState.subscribe((auth) => {
+        if (auth) {
+          console.log("non connecté");
+          this.router.navigateByUrl("/login");
         } else {
-          this.router.navigateByUrl('/board/map');
-          console.log('Connecté: ' + auth.uid);
+          this.router.navigateByUrl("/board/map");
+          console.log("Connecté: " + auth.uid);
         }
       });
     });

@@ -1,0 +1,13 @@
+.cardContainer {
+  overflow: auto;
+  white-space: nowrap;
+  img {
+    height: 60%;
+  }
+  ion-card {
+    display: inline-block;
+    text-align: center;
+    width: 60%;
+    height: 20%;
+  }
+}
