@@ -5,6 +5,7 @@ import {
   coincoinList,
 } from "src/app/shared/model/coincoin.model";
 import { environment } from "src/environments/environment";
+import { PhotoService } from "src/app/shared/service/photo.service";
 
 @Component({
   selector: "app-map",
@@ -15,7 +16,7 @@ export class MapPage implements OnInit {
   private map: mapboxgl.Map;
   coinList: Array<coincoinModel>;
 
-  constructor() {}
+  constructor(public photoService: PhotoService) {}
 
   ngOnInit() {
     (mapboxgl as typeof mapboxgl).accessToken = environment.mapToken;
@@ -81,5 +82,9 @@ export class MapPage implements OnInit {
         .addTo(this.map)
         .setPopup(popup);
     });
+  }
+
+  takePhoto() {
+    this.photoService.takeNewPhoto();
   }
 }
