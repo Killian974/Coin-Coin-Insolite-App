@@ -22,3 +22,8 @@ Github du projet d'application mobile Coin-Coin insolite, Groupe 1.
 
 - Méthode adresse email & mot de passe : `Email : test@gmail.com` || `Mot de passe : test@gmail.com`
 - Méthode connexion facebook : `Email : xlkrrecxpc_1588171961@tfbnw.net` || `Mot de passe : coincoin`
+
+## Status au 31/07
+L'appli posséde la plupart de ses views, elle peux afficher une carte fonctionelle avec des lieux afficher et géolocaliser l'utilisateur. Elle permet de prendre des photos.
+Manque une page de profil et de parametre, l'auth est a finaliser (par facebook).
+Manque également dans la partie back le model des lieux a afficher.
